@@ -18,6 +18,10 @@ narginchk(1,3);
 % Convert structure to cell
 c = struct2cell(s);
 
+isnum = cellfun(@isnumeric,c);
+% notnumrow = ~all(isnum,2);
+assert(all(isnum(:)),'All entries must be numeric.');
+
 % Construct an array
 a = [c{:}];
 
